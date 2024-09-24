@@ -1,0 +1,98 @@
+{
+	"info": {
+		"_postman_id": "dd102d95-beb7-461c-a8bd-21f80c525232",
+		"name": "Lab_1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "28253557"
+	},
+	"item": [
+		{
+			"name": "Get",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5008/resource-vnd",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5008",
+					"path": [
+						"resource-vnd"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5008/resource-vnd?result=8",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5008",
+					"path": [
+						"resource-vnd"
+					],
+					"query": [
+						{
+							"key": "result",
+							"value": "8"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Put",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5008/resource-vnd?add=5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5008",
+					"path": [
+						"resource-vnd"
+					],
+					"query": [
+						{
+							"key": "add",
+							"value": "5"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5008/resource-vnd",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5008",
+					"path": [
+						"resource-vnd"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

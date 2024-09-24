@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resource Controller</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <h1>Resource Controller</h1>
+    <div>
+        <button id="getResource">Get Resource</button>
+        <p id="resourceResult">Result: </p>
+    </div>
+    <div>
+        <input type="number" id="setResultValue" placeholder="Set Result">
+        <button id="setResult">Set Result</button>
+    </div>
+    <div>
+        <input type="number" id="pushValue" placeholder="Value to Push">
+        <button id="pushToStack">Push to Stack</button>
+    </div>
+    <div>
+        <button id="popStack">Pop from Stack</button>
+    </div>
+    
+    <script>
+        $(document).ready(function () {
+            $('#getResource').click(function () {
+                $.ajax({
+                    url: '/resource',
+                    type: 'GET',
+                    success: function (data) {
+                        $('#resourceResult').text('Result: ' + data.result);
+                    },
+                    error: function () {
+                        alert('Error fetching resource');
+                    }
+                });
+            });
+
+            $('#setResult').click(function () {
+                const resultValue = Number($('#setResultValue').val());
+                $.ajax({
+                    url: `/resource?result=${resultValue}`,
+                    type: 'POST',
+                    success: function () {
+                        alert('Result set successfully');
+                    },
+                    error: function () {
+                        alert('Error setting result');
+                    }
+                });
+            });
+
+            $('#pushToStack').click(function () {
+                const pushValue = Number($('#pushValue').val());
+                $.ajax({
+                    url: `/resource?add=${pushValue}`,
+                    type: 'PUT',
+                    success: function () {
+                        alert('Value pushed to stack');
+                    },
+                    error: function () {
+                        alert('Error pushing to stack');
+                    }
+                });
+            });
+
+            $('#popStack').click(function () {
+                $.ajax({
+                    url: '/resource',
+                    type: 'DELETE',
+                    success: function () {
+                        alert('Value popped from stack');
+                    },
+                    error: function () {
+                        alert('Error popping stack');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
